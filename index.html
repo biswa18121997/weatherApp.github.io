@@ -7,18 +7,173 @@
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body>
+<body class="bg-orange-600 font-serif text-yellow-200">
+ 
     
-<div class="container">
-  <div class="weather-container">
-    <section>
-      <input type="text" placeholder="Enter Your City">
-      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+<div id="container" class="bg-gradient-to-r from-orange-400 via-yellow-400 to-cyan-400  h-[100vh] w-[100vw] m-5 flex justify-center">
+  <div class="weather-container border-4 h-full w-3/5 bg-blue-600">
+    <h1 class="text-center">Weather Forecast Application</h1>
+    <section id="section1" class="flex justify-center mt-4  w-full">
+      <input type="text" id="searchcity" placeholder="Enter Your City" class="w-2/5 border-2">
+      <button id="search" class="border-2 m-2 p-2 rounded-xl hover:bg-red-500"><i class="fa-solid fa-magnifying-glass text-white "></i></button>
+      <button id="locateme" class="border-2 m-2 p-2 rounded-xl hover:bg-red-500"><i class="fa-solid fa-map-location-dot text-white "></i></button>
+      
+    </section>
+    <section id="section2" class="flex flex-col items-center justify-center mt-5">
+      <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+      <h1>Today -100 ° C</h1>
+      <h2>Sunny</h2>
+      <h3>Location- Kolkata</h3>
+    </section>
+    <section id="section3" class="flex justify-around">
+      <div>
+        <img width="48" height="48" src="https://img.icons8.com/fluency/48/wind.png" alt="wind"/>
+        <h1 class="underline">Wind Speed</h1>
+        <h2>10 km/h</h2> 
+      </div>
+      <div>
+        <img width="48" height="48" src="https://img.icons8.com/fluency/48/dew-point.png" alt="dew-point"/>
+        <h1>Humidity</h1>
+        <h2>10%</h2>
+      </div> 
+
+      </section>
+      <section class="flex justify-evenly">
+        <section>
+          <h1>Sunday</h1>
+          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+          <h2>55 ° C</h2>
+        </section>
+        <section>
+          <h1>Sunday</h1>
+          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+          <h2>55 ° C</h2>
+        </section>
+        <section>
+          <h1>Sunday</h1>
+          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+          <h2>55 ° C</h2>
+        </section>
+        <section>
+          <h1>Sunday</h1>
+          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+          <h2>55 ° C</h2>
+        </section>
+        <section>
+          <h1>Sunday</h1>
+          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+          <h2>55 ° C</h2>
+        </section>
+        <section>
+          <h1>Sunday</h1>
+          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+          <h2>55 ° C</h2>
+        </section>
+        <section>
+          <h1>Sunday</h1>
+          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+          <h2>55 ° C</h2>
+        </section>
+       
+    </section>
+
+    <section class="flex justify-center">
+      <section >
+        <h2>Time-<span id="span1">10:00 Am</span></h2>
+        <h2>Time Of The Day- <span id="span2">Evening</span></h2>
+        <h2>Country- <span>Bharat</span></h2>
+        <h2>Date- <span id="span3">12-15-1111</span></h2>
+      </section>
+      <section class="ml-10">
+        <h1>AIR QUALITY INDEX:</h1>
+        <table>
+          <tr>
+            <td>CO</td><td id="co2">0.5</td>
+            
+          </tr>
+          <tr>
+            <td>NO2</td><td id no2>0.5</td>
+            
+          </tr>
+          <tr>
+            <td>SO2</td><td id="so2">0.5</td>
+            
+          </tr>
+          <tr>
+            <td>O3</td><td id="o3">0.5</td>
+            
+          </tr>
+          <tr>
+            <td>PM2.5</td><td id="pm25">0.5</td>
+            
+          </tr>
+          <tr>
+            <td>PM10</td><td id="pm10">0.5</td>
+            
+          </tr>
+        </table>
+
+      </section>
     </section>
   </div>
 </div>
 
-      
+<script>
+  let API=`http://api.weatherapi.com/v1/current.json?`;
+  let apiKEY=`49c92cd8515344818f453627250101`;
+  let City=document.querySelector("#searchcity").value;
+  let searchbutton=document.querySelector("#search");
+  let locate=document.querySelector("#locateme");
+  searchbutton.addEventListener("click",getWeather);
+
+
+  
+  async function getWeather(){
+    let response=await fetch(`${API}key=${apiKEY}&q=${City}`);
+    let data=await response.json();
+    console.log(data);
+
+  }
+
+
+  let locateme=document.querySelector("locateme");
+  locate.addEventListener("click",getLocation);
+  async function getLocation() {
+  if (navigator.geolocation) {
+    console.log( "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;);
+  } else { 
+     console.log("Geolocation is not supported by this browser.");
+  }
+}
+
+
+
+  const tarik=new Date();
+  let day=tarik.getDate();
+  let month=tarik.getMonth()+1;
+  let year=tarik.getFullYear();
+  document.querySelector("#span3").innerHTML=`${day}-${month}-${year}`;
+
+  document.querySelector('#span1').innerHTML=tarik.getHours()+":"+tarik.getMinutes()+":"+tarik.getSeconds();
+  if(tarik.getHours()>=0 && tarik.getHours()<12){
+    document.querySelector('#span2').innerHTML="Morning";
+    document.querySelector("container").style.backgroundColor="yellow";
+  }
+  else if(tarik.getHours()>=12 && tarik.getHours()<16){
+    document.querySelector('#span2').innerHTML="Afternoon";
+    document.querySelector("#container").style.backgroundColor="red";
+  }
+  else if(tarik.getHours()>=16 && tarik.getHours()<20){
+    document.querySelector('#span2').innerHTML="Evening";
+    document.querySelector("#container").style.backgroundColor="blue";
+  }
+  else{
+    document.querySelector('#span2').innerHTML="Night";
+    document.querySelector("#container").style.backgroundColor="black";
+  }
+
+
+</script>
 </body>
 </html>
 
