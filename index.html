@@ -21,7 +21,7 @@
     <section id="section1" class="flex justify-center mt-4  w-full">
       <input type="text" id="searchcity" placeholder="Enter Your City" class="w-2/5 border-2 text-black">
       <button id="search" class="border-2 m-2 p-2 rounded-xl hover:bg-red-500"><i class="fa-solid fa-magnifying-glass text-white "></i></button>
-      <button id="locateme" class="border-2 m-2 p-2 rounded-xl hover:bg-red-500"><i class="fa-solid fa-map-location-dot text-white "></i></button>
+      <button id="locateme" class="border-2 m-2 p-2 rounded-xl hover:bg-red-500 hover:text-black"> Use Current Location <i class="fa-solid fa-map-location-dot text-white text-lg"></i></button>
       
     </section>
 
@@ -176,22 +176,30 @@
   async function getWeather(){
     let City=document.querySelector("#searchcity").value;
     let response=await fetch(`${API}key=${apiKEY}&q=${City}&days=${forecastdays}&aqi=yes`);
-    let data=await response.json();
-    console.log(data);
-    document.querySelector("#tempc").innerHTML=data.current.temp_c;
-    document.querySelector("#sky").innerHTML=data.current.condition.text;
-    document.querySelector("#loc").innerHTML=data.location.name;
-    document.querySelector("#wind").innerHTML=data.current.wind_kph;
-    document.querySelector("#humid").innerHTML=data.current.humidity;
-    document.querySelector("#pm10").innerHTML=data.current.air_quality.pm10;
-    document.querySelector("#pm25").innerHTML=data.current.air_quality.pm2_5;
-    document.querySelector("#o3").innerHTML=data.current.air_quality.o3;
-    document.querySelector("#so2").innerHTML=data.current.air_quality.so2;
-    document.querySelector("#no2").innerHTML=data.current.air_quality.no2;
-    document.querySelector("#co").innerHTML=data.current.air_quality.co;  
-    document.querySelector("#country").innerHTML=data.location.country;
+    if(response.ok){
+      let data=await response.json();
+      console.log(data);
+      document.querySelector("#tempc").innerHTML=data.current.temp_c;
+      document.querySelector("#sky").innerHTML=data.current.condition.text;
+      document.querySelector("#loc").innerHTML=data.location.name;
+      document.querySelector("#wind").innerHTML=data.current.wind_kph;
+      document.querySelector("#humid").innerHTML=data.current.humidity;
+      document.querySelector("#pm10").innerHTML=data.current.air_quality.pm10;
+      document.querySelector("#pm25").innerHTML=data.current.air_quality.pm2_5;
+      document.querySelector("#o3").innerHTML=data.current.air_quality.o3;
+      document.querySelector("#so2").innerHTML=data.current.air_quality.so2;
+      document.querySelector("#no2").innerHTML=data.current.air_quality.no2;
+      document.querySelector("#co").innerHTML=data.current.air_quality.co;  
+      document.querySelector("#country").innerHTML=data.location.country;
     
     getforecast();
+    storingcity();
+    }
+   else{
+    alert("Enter a valid city name");
+    document.querySelector("#searchcity").value="";
+   }
+    
 
   }
   let API1=`http://api.weatherapi.com/v1/forecast.json?`;
@@ -200,7 +208,8 @@
     let City=document.querySelector("#searchcity").value;
     let forecast=await fetch(`${API1}key=${apiKEY}&q=${City}&days=8&aqi=no`);
     let foredata=await forecast.json();
-    console.log(foredata);
+    if(forecast.ok){
+      console.log(foredata);
     document.querySelector("#forecastday1").innerHTML=foredata.forecast.forecastday[1].date;
     document.querySelector("#forecastday2").innerHTML=foredata.forecast.forecastday[2].date;
     document.querySelector("#forecastday3").innerHTML=foredata.forecast.forecastday[3].date;
@@ -222,6 +231,10 @@
     document.querySelector("#day5c").innerHTML=`${foredata.forecast.forecastday[5].day.condition.text}`;
     document.querySelector("#day6c").innerHTML=`${foredata.forecast.forecastday[6].day.condition.text}`;
     document.querySelector("#day7c").innerHTML=`${foredata.forecast.forecastday[7].day.condition.text}`;
+    }
+    else
+      alert(" error in loading Forecast data ");
+   
 
    
 
@@ -232,6 +245,7 @@
   locateme.addEventListener("click",getlocation);
   
   async function getlocation() {
+    document.querySelector("#searchcity").value = "";
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, failed);
     } else {
@@ -295,6 +309,15 @@
   function failed(error) {
     console.error('Error getting location:', error);
   }    
+
+  function storingcity(){
+    let storeDate=new Date();
+    let city=document.querySelector("#searchcity").value.trim();
+    let i=1;
+    localStorage.setItem(storeDate,city);
+    ++i;
+
+  }
 
 
 
