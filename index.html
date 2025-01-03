@@ -6,114 +6,159 @@
     <title>Document</title>
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+      @media 768 {
+        
+      }
+    </style>
 </head>
-<body class="bg-orange-600 font-serif text-yellow-200">
+<body class="bg-orange-600 font-serif text-white">
  
     
 <div id="container" class="bg-gradient-to-r from-orange-400 via-yellow-400 to-cyan-400  h-[100vh] w-[100vw] m-5 flex justify-center">
-  <div class="weather-container border-4 h-full w-3/5 bg-blue-600">
-    <h1 class="text-center">Weather Forecast Application</h1>
+  <div class="weather-container border-4 h-full w-3/5  " style="background-image:url('pexels-pixabay-209831.jpg');background-position: center;">
+    <h1 class="text-center font-extrabold text-2xl mt-5">Weather Forecast Application</h1>
     <section id="section1" class="flex justify-center mt-4  w-full">
-      <input type="text" id="searchcity" placeholder="Enter Your City" class="w-2/5 border-2">
+      <input type="text" id="searchcity" placeholder="Enter Your City" class="w-2/5 border-2 text-black">
       <button id="search" class="border-2 m-2 p-2 rounded-xl hover:bg-red-500"><i class="fa-solid fa-magnifying-glass text-white "></i></button>
       <button id="locateme" class="border-2 m-2 p-2 rounded-xl hover:bg-red-500"><i class="fa-solid fa-map-location-dot text-white "></i></button>
       
     </section>
-    <section id="section2" class="flex flex-col items-center justify-center mt-5">
-      <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
-      <h1>Today -100 ° C</h1>
-      <h2>Sunny</h2>
-      <h3>Location- Kolkata</h3>
-    </section>
-    <section id="section3" class="flex justify-around">
-      <div>
-        <img width="48" height="48" src="https://img.icons8.com/fluency/48/wind.png" alt="wind"/>
-        <h1 class="underline">Wind Speed</h1>
-        <h2>10 km/h</h2> 
-      </div>
-      <div>
-        <img width="48" height="48" src="https://img.icons8.com/fluency/48/dew-point.png" alt="dew-point"/>
-        <h1>Humidity</h1>
-        <h2>10%</h2>
+
+
+    <section id="section2" class="flex  items-center justify-evenly mt-5">
+    
+      <div class="border-2 p-4 rounded-full">
+        <img width="48" height="48" class="animate-bounce" src="https://img.icons8.com/fluency/48/dew-point.png" alt="dew-point"/>
+        <h1>Humidity <br><span id="humid">45%</span></h1>
+      
       </div> 
-
-      </section>
-      <section class="flex justify-evenly">
-        <section>
-          <h1>Sunday</h1>
-          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
-          <h2>55 ° C</h2>
-        </section>
-        <section>
-          <h1>Sunday</h1>
-          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
-          <h2>55 ° C</h2>
-        </section>
-        <section>
-          <h1>Sunday</h1>
-          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
-          <h2>55 ° C</h2>
-        </section>
-        <section>
-          <h1>Sunday</h1>
-          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
-          <h2>55 ° C</h2>
-        </section>
-        <section>
-          <h1>Sunday</h1>
-          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
-          <h2>55 ° C</h2>
-        </section>
-        <section>
-          <h1>Sunday</h1>
-          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
-          <h2>55 ° C</h2>
-        </section>
-        <section>
-          <h1>Sunday</h1>
-          <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
-          <h2>55 ° C</h2>
-        </section>
-       
+      <div>
+        <img width="48" height="48" class="animate-bounce" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+        <h1>Today -<span id="tempc">54</span> ° C</h1>
+        <h2 id="sky">Sunny</h2>
+        <h3>Location- <span id="loc">j&k</span></h3>
+      </div>
+      
+      <div class="border-2 p-4 rounded-full">
+        <img width="48" height="48" class="animate-bounce" src="https://img.icons8.com/fluency/48/wind.png" alt="wind"/>
+        <h1 class="" >Wind Speed <br><span id="wind">45</span>KM/HR</h1>
+        
+      </div>
+      
+      
     </section>
+    
 
-    <section class="flex justify-center">
-      <section >
+    <section id="section3" class="flex justify-center mt-5 text-white">
+      <section class=" p-5 rounded-3xl shadow-inner shadow-black justify-center items-center border border-b-4">
         <h2>Time-<span id="span1">10:00 Am</span></h2>
         <h2>Time Of The Day- <span id="span2">Evening</span></h2>
-        <h2>Country- <span>Bharat</span></h2>
+        <h2>Country- <span id="country">Bharat</span></h2>
         <h2>Date- <span id="span3">12-15-1111</span></h2>
       </section>
-      <section class="ml-10">
+
+
+      <section class="ml-10 table-auto text-sm border border-b-4 p-5 rounded-3xl shadow-inner shadow-black ">
         <h1>AIR QUALITY INDEX:</h1>
-        <table>
-          <tr>
-            <td>CO</td><td id="co2">0.5</td>
+        <table class="">
+          <tr class="border-2">
+            <th class="pr-8">GASES/ PARTICLES</th>
+            <th class="ml-6">QUALITY</th>
             
           </tr>
           <tr>
-            <td>NO2</td><td id no2>0.5</td>
+            <td>CO</td><td id="co" class="text-right">0.5</td>
             
           </tr>
           <tr>
-            <td>SO2</td><td id="so2">0.5</td>
+            <td>NO2</td><td id="no2" class="text-right">0.5</td>
             
           </tr>
           <tr>
-            <td>O3</td><td id="o3">0.5</td>
+            <td>SO2</td><td id="so2" class="text-right">0.5</td>
             
           </tr>
           <tr>
-            <td>PM2.5</td><td id="pm25">0.5</td>
+            <td>O3</td><td id="o3" class="text-right">0.5</td>
             
           </tr>
           <tr>
-            <td>PM10</td><td id="pm10">0.5</td>
+            <td>PM2.5</td><td id="pm25" class="text-right">0.5</td>
+            
+          </tr>
+          <tr>
+            <td>PM10</td><td id="pm10" class="text-right">0.5</td>
             
           </tr>
         </table>
 
       </section>
+
+    </section>
+    
+      
+      
+
+      
+
+      
+
+      </section>
+      <div class="mt-5 border-y-2">
+        <h1 class="text-center underline border-2 border-spacing-6">Three Days Weather Forecast</h1>
+        <section class="flex justify-evenly">
+          <section>
+            <h1 id="forecastday1">Sunday</h1>
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+            <h2 id="day1">55 ° C</h2>
+            <h2 id="day1c"></h2>
+          </section>
+          <section>
+            <h1 id="forecastday2">Sunday</h1>
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+            <h2 id="day2">55 ° C</h2>
+            <h2 id="day2c"></h2>
+          </section>
+          <section>
+            <h1 id="forecastday3">Sunday</h1>
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+            <h2 id="day3">55 ° C</h2>
+            <h2 id="day3c"></h2>
+          </section>
+          <section>
+            <h1 id="forecastday4">Sunday</h1>
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+            <h2 id="day4">55 ° C</h2>
+            <h2 id="day4c"></h2>
+          </section>
+          <section>
+            <h1 id="forecastday5">Sunday</h1>
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+            <h2 id="day5">55 ° C</h2>
+            <h2 id="day5c"></h2>
+          </section>
+          <section>
+            <h1 id="forecastday6">Sunday</h1>
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+            <h2 id="day6">55 ° C</h2>
+            <h2 id="day6c"></h2>
+          </section>
+          <section>
+            <h1 id="forecastday7">Sunday</h1>
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/partly-cloudy-rain.png" alt="partly-cloudy-rain"/>
+            <h2 id="day7">55 ° C</h2>
+            <h2 id="day7c"></h2>
+          </section>
+      </div>
+      
+        
+       
+    </section>
+
+    <section class="flex justify-center">
+      
+      
     </section>
   </div>
 </div>
@@ -121,30 +166,145 @@
 <script>
   let API=`http://api.weatherapi.com/v1/current.json?`;
   let apiKEY=`49c92cd8515344818f453627250101`;
-  let City=document.querySelector("#searchcity").value;
+  let forecastdays=8;
   let searchbutton=document.querySelector("#search");
-  let locate=document.querySelector("#locateme");
+  let locateme=document.querySelector("#locateme");
   searchbutton.addEventListener("click",getWeather);
 
 
   
   async function getWeather(){
-    let response=await fetch(`${API}key=${apiKEY}&q=${City}`);
+    let City=document.querySelector("#searchcity").value;
+    let response=await fetch(`${API}key=${apiKEY}&q=${City}&days=${forecastdays}&aqi=yes`);
     let data=await response.json();
     console.log(data);
+    document.querySelector("#tempc").innerHTML=data.current.temp_c;
+    document.querySelector("#sky").innerHTML=data.current.condition.text;
+    document.querySelector("#loc").innerHTML=data.location.name;
+    document.querySelector("#wind").innerHTML=data.current.wind_kph;
+    document.querySelector("#humid").innerHTML=data.current.humidity;
+    document.querySelector("#pm10").innerHTML=data.current.air_quality.pm10;
+    document.querySelector("#pm25").innerHTML=data.current.air_quality.pm2_5;
+    document.querySelector("#o3").innerHTML=data.current.air_quality.o3;
+    document.querySelector("#so2").innerHTML=data.current.air_quality.so2;
+    document.querySelector("#no2").innerHTML=data.current.air_quality.no2;
+    document.querySelector("#co").innerHTML=data.current.air_quality.co;  
+    document.querySelector("#country").innerHTML=data.location.country;
+    
+    getforecast();
+
+  }
+  let API1=`http://api.weatherapi.com/v1/forecast.json?`;
+  
+  async function getforecast(){
+    let City=document.querySelector("#searchcity").value;
+    let forecast=await fetch(`${API1}key=${apiKEY}&q=${City}&days=8&aqi=no`);
+    let foredata=await forecast.json();
+    console.log(foredata);
+    document.querySelector("#forecastday1").innerHTML=foredata.forecast.forecastday[1].date;
+    document.querySelector("#forecastday2").innerHTML=foredata.forecast.forecastday[2].date;
+    document.querySelector("#forecastday3").innerHTML=foredata.forecast.forecastday[3].date;
+    document.querySelector("#forecastday4").innerHTML=foredata.forecast.forecastday[4].date;
+    document.querySelector("#forecastday5").innerHTML=foredata.forecast.forecastday[5].date;
+    document.querySelector("#forecastday6").innerHTML=foredata.forecast.forecastday[6].date;
+    document.querySelector("#forecastday7").innerHTML=foredata.forecast.forecastday[7].date;
+    document.querySelector("#day1").innerHTML=`${foredata.forecast.forecastday[1].day.avgtemp_c} °C`;
+    document.querySelector("#day2").innerHTML=`${foredata.forecast.forecastday[2].day.avgtemp_c} °C`;
+    document.querySelector("#day3").innerHTML=`${foredata.forecast.forecastday[3].day.avgtemp_c} °C`;
+    document.querySelector("#day4").innerHTML=`${foredata.forecast.forecastday[4].day.avgtemp_c} °C`;
+    document.querySelector("#day5").innerHTML=`${foredata.forecast.forecastday[5].day.avgtemp_c} °C`;
+    document.querySelector("#day6").innerHTML=`${foredata.forecast.forecastday[6].day.avgtemp_c} °C`;
+    document.querySelector("#day7").innerHTML=`${foredata.forecast.forecastday[7].day.avgtemp_c} °C`;
+    document.querySelector("#day1c").innerHTML=`${foredata.forecast.forecastday[1].day.condition.text}`;
+    document.querySelector("#day2c").innerHTML=`${foredata.forecast.forecastday[2].day.condition.text}`;
+    document.querySelector("#day3c").innerHTML=`${foredata.forecast.forecastday[3].day.condition.text}`;
+    document.querySelector("#day4c").innerHTML=`${foredata.forecast.forecastday[4].day.condition.text}`;
+    document.querySelector("#day5c").innerHTML=`${foredata.forecast.forecastday[5].day.condition.text}`;
+    document.querySelector("#day6c").innerHTML=`${foredata.forecast.forecastday[6].day.condition.text}`;
+    document.querySelector("#day7c").innerHTML=`${foredata.forecast.forecastday[7].day.condition.text}`;
+
+   
 
   }
 
 
-  let locateme=document.querySelector("locateme");
-  locate.addEventListener("click",getLocation);
-  async function getLocation() {
-  if (navigator.geolocation) {
-    console.log( "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;);
-  } else { 
-     console.log("Geolocation is not supported by this browser.");
+
+  locateme.addEventListener("click",getlocation);
+  
+  async function getlocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, failed);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
   }
-}
+
+  async function success(position) {
+    try {
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+      console.log(latitude, longitude);
+
+      let responsegeo = await fetch(`${API1}key=${apiKEY}&q=${latitude},${longitude}&days=8&aqi=yes`);
+      if (!responsegeo.ok) {
+        throw new Error(`HTTP error! status: ${responsegeo.status}`);
+      }
+      let datageo = await responsegeo.json();
+      console.log(datageo);
+
+      document.querySelector("#tempc").innerHTML = datageo.current.temp_c;
+      document.querySelector("#sky").innerHTML = datageo.current.condition.text;
+      document.querySelector("#loc").innerHTML = datageo.location.name;
+      document.querySelector("#wind").innerHTML = datageo.current.wind_kph;
+      document.querySelector("#humid").innerHTML = datageo.current.humidity;
+      document.querySelector("#pm10").innerHTML = datageo.current.air_quality.pm10;
+      document.querySelector("#pm25").innerHTML = datageo.current.air_quality.pm2_5;
+      document.querySelector("#o3").innerHTML = datageo.current.air_quality.o3;
+      document.querySelector("#so2").innerHTML = datageo.current.air_quality.so2;
+      document.querySelector("#no2").innerHTML = datageo.current.air_quality.no2;
+      document.querySelector("#co").innerHTML = datageo.current.air_quality.co;
+
+
+      //ye hua forecast ka
+    document.querySelector("#forecastday1").innerHTML=datageo.forecast.forecastday[1].date;
+    document.querySelector("#forecastday2").innerHTML=datageo.forecast.forecastday[2].date;
+    document.querySelector("#forecastday3").innerHTML=datageo.forecast.forecastday[3].date;
+    document.querySelector("#forecastday4").innerHTML=datageo.forecast.forecastday[4].date;
+    document.querySelector("#forecastday5").innerHTML=datageo.forecast.forecastday[5].date;
+    document.querySelector("#forecastday6").innerHTML=datageo.forecast.forecastday[6].date;
+    document.querySelector("#forecastday7").innerHTML=datageo.forecast.forecastday[7].date;
+    document.querySelector("#day1").innerHTML=`${datageo.forecast.forecastday[1].day.avgtemp_c} °C`;
+    document.querySelector("#day2").innerHTML=`${datageo.forecast.forecastday[2].day.avgtemp_c} °C`;
+    document.querySelector("#day3").innerHTML=`${datageo.forecast.forecastday[3].day.avgtemp_c} °C`;
+    document.querySelector("#day4").innerHTML=`${datageo.forecast.forecastday[4].day.avgtemp_c} °C`;
+    document.querySelector("#day5").innerHTML=`${datageo.forecast.forecastday[5].day.avgtemp_c} °C`;
+    document.querySelector("#day6").innerHTML=`${datageo.forecast.forecastday[6].day.avgtemp_c} °C`;
+    document.querySelector("#day7").innerHTML=`${datageo.forecast.forecastday[7].day.avgtemp_c} °C`;
+    document.querySelector("#day1c").innerHTML=`${datageo.forecast.forecastday[0].day.condition.text}`;
+    document.querySelector("#day2c").innerHTML=`${datageo.forecast.forecastday[1].day.condition.text}`;
+    document.querySelector("#day3c").innerHTML=`${datageo.forecast.forecastday[2].day.condition.text}`;
+    document.querySelector("#day4c").innerHTML=`${datageo.forecast.forecastday[3].day.condition.text}`; 
+    document.querySelector("#day5c").innerHTML=`${datageo.forecast.forecastday[4].day.condition.text}`;
+    document.querySelector("#day6c").innerHTML=`${datageo.forecast.forecastday[5].day.condition.text}`;
+    document.querySelector("#day7c").innerHTML=`${datageo.forecast.forecastday[6].day.condition.text}`;
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
+  }
+
+  function failed(error) {
+    console.error('Error getting location:', error);
+  }    
+
+
+
+
+
+      
+
+
+
+
 
 
 
