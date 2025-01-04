@@ -166,7 +166,7 @@
 <script>
   let API=`http://api.weatherapi.com/v1/current.json?`;
   let apiKEY=`49c92cd8515344818f453627250101`;
-  let forecastdays=8;
+  let forecastdays=3;
   let searchbutton=document.querySelector("#search");
   let locateme=document.querySelector("#locateme");
   searchbutton.addEventListener("click",getWeather);
@@ -206,7 +206,7 @@
   
   async function getforecast(){
     let City=document.querySelector("#searchcity").value;
-    let forecast=await fetch(`${API1}key=${apiKEY}&q=${City}&days=8&aqi=no`);
+    let forecast=await fetch(`${API1}key=${apiKEY}&q=${City}&days=3&aqi=no`);
     let foredata=await forecast.json();
     if(forecast.ok){
       console.log(foredata);
@@ -259,7 +259,7 @@
       let longitude = position.coords.longitude;
       console.log(latitude, longitude);
 
-      let responsegeo = await fetch(`${API1}key=${apiKEY}&q=${latitude},${longitude}&days=8&aqi=yes`);
+      let responsegeo = await fetch(`${API1}key=${apiKEY}&q=${latitude},${longitude}&days=3&aqi=yes`);
       if (!responsegeo.ok) {
         throw new Error(`HTTP error! status: ${responsegeo.status}`);
       }
